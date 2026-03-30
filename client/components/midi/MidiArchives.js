@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Player from './Player.js';
 import { connect } from 'react-redux';
+import midiFolders from '../common/midiFolders';
 
 class MidiArchives extends React.Component {
   constructor(props) {
@@ -147,7 +148,6 @@ class MidiArchives extends React.Component {
 
   render() {
     var self = this;
-    var tabs = ['contemporary', 'games', 'movies', 'anthems'];
     var activeMidi = self.state[self.state.tab] || [];
     var readyCount = activeMidi.length;
     var favoriteCount = self.state.favorites.length;
@@ -165,6 +165,8 @@ class MidiArchives extends React.Component {
       return arr.map(function(midi, i) {
         var midiRealName = self.formatMidiName(midi);
         var isFavorited = self.state.favorites.indexOf(midi) !== -1;
+
+        if (midi === '.DS_Store') return null;
 
         return (
           <div key={i} className="midi-masonry-item">
@@ -262,7 +264,7 @@ class MidiArchives extends React.Component {
           </div>
 
           <div className="midi-archives-tabs">
-            {tabs.map(function(tabName) {
+            {midiFolders.map(function(tabName) {
               var isActive = self.state.tab === tabName;
 
               return (

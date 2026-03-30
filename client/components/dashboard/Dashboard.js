@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Player from '../midi/Player';
+import midiFolders from '../common/midiFolders';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -40,9 +41,9 @@ class Dashboard extends React.Component {
 
   resolveFavoriteItems(favoriteMidi) {
     var self = this;
-    var folders = ['contemporary', 'games', 'movies', 'anthems'];
+    
 
-    Promise.all(folders.map(function(folder) {
+    Promise.all(midiFolders.map(function(folder) {
       return axios.get('/api/midi/folder/' + folder).then(function(data) {
         return {
           folder: folder,
