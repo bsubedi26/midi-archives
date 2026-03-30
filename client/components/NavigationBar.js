@@ -11,13 +11,13 @@ class NavigationBar extends React.Component {
 
   render() {
     const { isAuthenticated } = this.props.auth;
-    const username = localStorage.getItem('username');
+    // const username = localStorage.getItem('username');
 
     // Navigation links if the user is authenticated and logged in
     const userLinks = (
       <ul className="nav navbar-nav navbar-right">
-        <li><Link to="/new-event">Add Event</Link></li>
-        <li><Link to="/scrape">Video Scrapes</Link></li>
+        {/* <li><Link to="/new-event">Add Event</Link></li> */}
+        {/* <li><Link to="/scrape">Video Scrapes</Link></li> */}
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/midi-archives">Midi Archives</Link></li>
         <li><Link to="/">Hello, { this.props.user.username }</Link></li>
@@ -27,8 +27,8 @@ class NavigationBar extends React.Component {
     // Navigation links if the user is not logged in
     const guestLinks = (
       <ul className="nav navbar-nav navbar-right">
-        <li><Link to="/new-event">Add Event</Link></li>
-        <li><Link to="/scrape">Video Scrapes</Link></li>
+        {/* <li><Link to="/new-event">Add Event</Link></li> */}
+        {/* <li><Link to="/scrape">Video Scrapes</Link></li> */}
         <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/midi-archives">Midi Archives</Link></li>
         <li><Link to="/signup">Sign up</Link></li>
@@ -40,7 +40,7 @@ class NavigationBar extends React.Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link to="/" className="navbar-brand">InstaMuzik</Link>
+            <Link to="/" className="navbar-brand">Midi Archives</Link>
           </div>
 
           <div className="collapse navbar-collapse">

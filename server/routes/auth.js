@@ -2,15 +2,15 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import config from '../config';
-import { getUserByUsername } from '../config/db_config';
+import { getUserByUsername, getUserByEmail } from '../config/db_config';
 
 let router = express.Router();
 
 router.post('/', (req, res) => {
   const { identifier, password } = req.body;
-  console.log('console post');
+  console.log('login post', identifier);
 
-  const user = getUserByUsername(identifier);
+  const user = getUserByUsername(identifier) || getUserByEmail(identifier);
 
   if (user) {
     bcrypt.compare(password, user.password, function(err, response) {

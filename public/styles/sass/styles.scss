@@ -76,6 +76,740 @@ h2 {
     background-color: $gunMetal;
     padding-left: 50px;
 }
+
+.dashboard-shell {
+    min-height: 100vh;
+    padding: 30px 20px 110px;
+    background:
+      radial-gradient(circle at top left, rgba(204, 51, 0, 0.22), transparent 32%),
+      radial-gradient(circle at top right, rgba(86, 102, 131, 0.3), transparent 28%),
+      linear-gradient(135deg, #f4efe7 0%, #dce6ef 45%, #f8f6f2 100%);
+}
+
+.dashboard-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+    padding: 30px;
+    border-radius: 24px;
+    background: rgba(44, 53, 57, 0.92);
+    box-shadow: 0 20px 55px rgba(44, 53, 57, 0.18);
+}
+
+.dashboard-kicker {
+    margin: 0 0 8px;
+    font-family: $raleway;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f5b08a;
+}
+
+.dashboard-hero h1 {
+    margin: 0;
+    color: #fff;
+}
+
+.dashboard-subtitle {
+    max-width: 650px;
+    margin-top: 10px;
+    font-family: $raleway;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+.dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.dashboard-stat-card {
+    min-width: 150px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-align: left;
+}
+
+.dashboard-stat-card strong {
+    display: block;
+    font-family: $baloo-paaji;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.dashboard-stat-label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: $raleway;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.dashboard-main-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard-panel {
+    margin-bottom: 25px;
+    padding: 26px;
+    border: 0;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 20px 50px rgba(86, 102, 131, 0.14);
+}
+
+.dashboard-panel-label {
+    margin: 0 0 10px;
+    font-family: $raleway;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $red;
+}
+
+.dashboard-profile-panel h2,
+.dashboard-favorites-panel h2 {
+    margin-top: 0;
+}
+
+.dashboard-profile-meta,
+.dashboard-profile-note,
+.dashboard-file-name {
+    font-family: $raleway;
+    color: #4d5f79;
+}
+
+.dashboard-profile-divider {
+    width: 80px;
+    height: 4px;
+    margin: 22px 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, $red 0%, #f0b48e 100%);
+}
+
+.dashboard-panel-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-search {
+    max-width: 260px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid rgba(86, 102, 131, 0.22);
+    box-shadow: none;
+}
+
+.dashboard-empty-state {
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.dashboard-empty-state p {
+    font-family: $raleway;
+    color: #586a84;
+}
+
+.dashboard-favorite-card {
+    height: 100%;
+    margin-bottom: 20px;
+    padding: 22px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(228, 236, 244, 0.96) 100%);
+    border: 1px solid rgba(86, 102, 131, 0.12);
+    box-shadow: 0 14px 34px rgba(86, 102, 131, 0.14);
+}
+
+.dashboard-favorite-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.dashboard-folder-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(44, 53, 57, 0.08);
+    font-family: $raleway;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $gunMetal;
+}
+
+.dashboard-remove-btn {
+    padding: 0;
+    font-family: $raleway;
+    color: $red;
+}
+
+.dashboard-remove-btn:hover,
+.dashboard-remove-btn:focus {
+    color: darken($red, 8%);
+    text-decoration: none;
+}
+
+.dashboard-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.dashboard-action-btn {
+    width: 54px;
+    border-radius: 14px;
+}
+
+.midi-archives-shell {
+    min-height: 100vh;
+    padding: 30px 20px 110px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(86, 102, 131, 0.22), transparent 28%),
+      radial-gradient(circle at 85% 15%, rgba(204, 51, 0, 0.18), transparent 24%),
+      linear-gradient(140deg, #f3efe6 0%, #eef2f7 42%, #e6ecf2 100%);
+}
+
+.midi-archives-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+    padding: 32px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(44, 53, 57, 0.96) 0%, rgba(64, 78, 96, 0.92) 100%);
+    box-shadow: 0 24px 60px rgba(44, 53, 57, 0.2);
+}
+
+.midi-archives-kicker {
+    margin: 0 0 10px;
+    font-family: $raleway;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f0bf9b;
+}
+
+.midi-archives-hero h1 {
+    margin: 0;
+    color: #fff;
+}
+
+.midi-archives-subtitle {
+    max-width: 640px;
+    margin-top: 12px;
+    font-family: $raleway;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.midi-archives-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.midi-archives-stat-card {
+    min-width: 148px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+}
+
+.midi-archives-stat-card strong {
+    display: block;
+    font-family: $baloo-paaji;
+    font-size: 28px;
+    line-height: 1.1;
+    text-transform: capitalize;
+}
+
+.midi-archives-stat-label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: $raleway;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.midi-archives-panel {
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 20px 50px rgba(86, 102, 131, 0.14);
+}
+
+.midi-archives-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.midi-archives-panel-label {
+    margin: 0 0 8px;
+    font-family: $raleway;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $red;
+}
+
+.midi-archives-search {
+    max-width: 290px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid rgba(86, 102, 131, 0.2);
+    box-shadow: none;
+}
+
+.midi-archives-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.midi-archives-tab {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(86, 102, 131, 0.18);
+    background: rgba(44, 53, 57, 0.04);
+    font-family: $raleway;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $gunMetal;
+}
+
+.midi-archives-tab:hover,
+.midi-archives-tab:focus {
+    background: rgba(44, 53, 57, 0.12);
+    color: $gunMetal;
+    outline: none;
+}
+
+.midi-archives-tab-active,
+.midi-archives-tab-active:hover,
+.midi-archives-tab-active:focus {
+    background: linear-gradient(135deg, $red 0%, #e28758 100%);
+    border-color: transparent;
+    color: #fff;
+}
+
+.midi-archive-grid {
+    margin-top: 6px;
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.midi-masonry-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+
+.midi-archive-card {
+    position: relative;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.97) 0%, rgba(228, 236, 244, 0.96) 100%);
+    border: 1px solid rgba(86, 102, 131, 0.12);
+    box-shadow: 0 16px 34px rgba(86, 102, 131, 0.12);
+}
+
+.midi-archive-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.midi-archive-category {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(44, 53, 57, 0.08);
+    font-family: $raleway;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $gunMetal;
+}
+
+.midi-archive-card h2 {
+    margin: 18px 0 12px;
+}
+
+.midi-file-meta {
+    min-height: 42px;
+    margin-bottom: 0;
+    font-family: $raleway;
+    color: #53657f;
+    word-break: break-word;
+}
+
+.midi-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.midi-action-btn {
+    width: 54px;
+    border-radius: 14px;
+}
+
+.midi-favorite-btn {
+    min-width: 50px;
+    border-radius: 14px;
+}
+
+.midi-empty-state {
+    padding: 42px 10px;
+    text-align: center;
+}
+
+.midi-empty-state p {
+    font-family: $raleway;
+    color: #586a84;
+}
+
+.home-shell {
+    position: relative;
+    min-height: calc(100vh - 70px);
+    margin: -20px -15px 0;
+    padding: 40px 30px 60px;
+    overflow: hidden;
+}
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(18, 27, 35, 0.88) 0%, rgba(18, 27, 35, 0.68) 38%, rgba(204, 51, 0, 0.22) 100%),
+      radial-gradient(circle at top right, rgba(255, 213, 167, 0.18), transparent 28%);
+    z-index: 0;
+}
+
+.home-hero,
+.home-content-row {
+    position: relative;
+    z-index: 1;
+}
+
+.home-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 28px;
+}
+
+.home-hero-copy,
+.home-highlight-card,
+.home-panel {
+    border-radius: 28px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.home-hero-copy {
+    flex: 1 1 620px;
+    padding: 34px;
+    background: rgba(15, 22, 29, 0.55);
+    color: #fff;
+}
+
+.home-kicker {
+    margin: 0 0 8px;
+    font-family: $raleway;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffcfb4;
+}
+
+.home-hero-copy h1 {
+    max-width: 760px;
+    margin: 0;
+    color: #fff;
+}
+
+.home-subtitle {
+    max-width: 700px;
+    margin-top: 16px;
+    font-family: $raleway;
+    font-size: 19px;
+    line-height: 1.7;
+    color: $red;
+}
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.home-primary-btn,
+.home-secondary-btn {
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-family: $raleway;
+    letter-spacing: 0.5px;
+}
+
+.home-primary-btn,
+.home-primary-btn:hover,
+.home-primary-btn:focus {
+    background: linear-gradient(135deg, $red 0%, #ec9464 100%);
+    color: #fff;
+}
+
+.home-secondary-btn,
+.home-secondary-btn:hover,
+.home-secondary-btn:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    color: #fff;
+}
+
+.home-highlight-card {
+    flex: 0 1 360px;
+    padding: 28px;
+    background: rgba(255, 248, 240, 0.88);
+}
+
+.home-card-label,
+.home-panel-label {
+    margin: 0 0 8px;
+    font-family: $raleway;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $red;
+}
+
+.home-check-list {
+    margin: 18px 0 0;
+    padding-left: 20px;
+    font-family: $raleway;
+    line-height: 1.8;
+    color: #42526a;
+}
+
+.home-panel {
+    height: 100%;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.86);
+}
+
+.home-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.home-link-card {
+    display: block;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.95) 0%, rgba(227, 236, 244, 0.95) 100%);
+    border: 1px solid rgba(86, 102, 131, 0.12);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 16px 34px rgba(86, 102, 131, 0.12);
+}
+
+.home-link-card:hover,
+.home-link-card:focus {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-2px);
+}
+
+.home-link-badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(44, 53, 57, 0.08);
+    font-family: $raleway;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $gunMetal;
+}
+
+.home-link-card p,
+.home-step p {
+    font-family: $raleway;
+    color: #50627b;
+}
+
+.home-steps {
+    margin-top: 20px;
+}
+
+.home-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.home-step-number {
+    min-width: 48px;
+    padding-top: 4px;
+    font-family: $baloo-paaji;
+    font-size: 26px;
+    line-height: 1;
+    color: $red;
+}
+
+.home-auth-shell {
+    min-height: calc(100vh - 70px);
+}
+
+.home-auth-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.home-form-panel,
+.home-form-highlight {
+    flex: 1 1 360px;
+    border-radius: 28px;
+    backdrop-filter: blur(8px);
+}
+
+.home-form-panel {
+    padding: 34px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.home-form-panel h1,
+.home-form-highlight h2 {
+    margin-top: 0;
+}
+
+.home-form-panel form {
+    margin-top: 22px;
+}
+
+.home-form-actions {
+    margin-top: 18px;
+}
+
+.home-auth-btn {
+    min-width: 160px;
+}
+
+.home-form-highlight {
+    padding: 30px;
+    background: rgba(15, 22, 29, 0.56);
+    color: #fff;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.home-form-highlight .home-card-label {
+    color: #ffd4bf;
+}
+
+.home-form-highlight .home-check-list {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.home-form-highlight .home-check-list li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    .home-shell {
+        margin: -20px -15px 0;
+        padding: 24px 14px 40px;
+    }
+
+    .dashboard-shell {
+        padding: 20px 12px 110px;
+    }
+
+    .midi-archives-shell {
+        padding: 20px 12px 110px;
+    }
+
+    .dashboard-hero,
+    .dashboard-panel,
+    .midi-archives-hero,
+    .midi-archives-panel {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .dashboard-search,
+    .midi-archives-search {
+        max-width: none;
+        width: 100%;
+    }
+
+    .home-hero-copy,
+    .home-highlight-card,
+    .home-panel {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .home-form-panel,
+    .home-form-highlight {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .home-link-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .midi-archive-grid {
+        column-count: 1;
+        column-gap: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+    .midi-archive-grid {
+        column-count: 2;
+    }
+}
 // main page background video
 video#bgvid { 
     position: fixed;

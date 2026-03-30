@@ -8,9 +8,11 @@ RUN npm run build
 
 FROM node:16-bullseye-slim
 WORKDIR /app
-ENV NODE_ENV=production
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json .npmrc ./
-RUN npm install --omit=dev
+RUN if [ "$NODE_ENV" = "production" ]; then npm install --omit=dev; else npm install; fi
 COPY server.js server.babel.js ./
 COPY .babelrc ./
 COPY server ./server

@@ -1,7 +1,4 @@
 import React from 'react';
-import map from 'lodash/map';
-import classnames from 'classnames';
-// import validateInput from '../../../server/shared/validations/signup';
 import TextFieldGroup from '../common/TextFieldGroup';
 
 class SignupForm extends React.Component {
@@ -27,31 +24,10 @@ class SignupForm extends React.Component {
   }
 
   isValid() {
-    // const { errors, isValid } = validateInput(this.state);
-
-    // if (!isValid) {
-    //   this.setState({ errors });
-    // }
     return true;
   }
 
   checkUserExists(e) {
-    // const field = e.target.name;
-    // const val = e.target.value;
-    // if (val !== '') {
-    //   this.props.isUserExists(val).then(res => {
-    //     let errors = this.state.errors;
-    //     let invalid;
-    //     if (res.data.user) {
-    //       errors[field] = 'There is user with such ' + field;
-    //       invalid = true;
-    //     } else {
-    //       errors[field] = '';
-    //       invalid = false;
-    //     }
-    //     this.setState({ errors, invalid });
-    //   });
-    // }
   }
 
   onSubmit(e) {
@@ -70,58 +46,86 @@ class SignupForm extends React.Component {
         (err) => this.setState({ errors: err.response.data, isLoading: false })
       );
     }
-    
-    
   }
 
   render() {
     const { errors } = this.state;
     
     return (
-      <form className="well" onSubmit={this.onSubmit}>
-        <h1 className="text-center">~~Join the community!</h1>
+      <div className="home-shell home-auth-shell">
+        <video autoPlay muted loop id="bgvid">
+          <source src="/videos/video-bg.mp4" type="video/mp4" />
+        </video>
 
-        <TextFieldGroup
-          error={errors.username}
-          label="Username"
-          onChange={this.onChange}
-          checkUserExists={this.checkUserExists}
-          value={this.state.username}
-          field="username"
-        />
+        <div className="home-overlay"></div>
 
-        <TextFieldGroup
-          error={errors.email}
-          label="Email"
-          onChange={this.onChange}
-          checkUserExists={this.checkUserExists}
-          value={this.state.email}
-          field="email"
-        />
+        <div className="home-auth-grid">
+          <div className="home-form-panel">
+            <p className="home-panel-label">Create Account</p>
+            <h1>Join the community</h1>
+            <p className="home-subtitle">
+              Build your own MIDI space so favorites, playback, and downloads stay close at hand.
+            </p>
 
-        <TextFieldGroup
-          error={errors.password}
-          label="Password"
-          onChange={this.onChange}
-          value={this.state.password}
-          field="password"
-          type="password"
-        />
+            <form onSubmit={this.onSubmit}>
+              <TextFieldGroup
+                error={errors.username}
+                label="Username"
+                onChange={this.onChange}
+                checkUserExists={this.checkUserExists}
+                value={this.state.username}
+                field="username"
+              />
 
-        <TextFieldGroup
-          error={errors.passwordConfirmation}
-          label="Password Confirmation"
-          onChange={this.onChange}
-          value={this.state.passwordConfirmation}
-          field="passwordConfirmation"
-          type="password"
-        />
-        <div className="form-group">
-          <button disabled={this.state.isLoading || this.state.invalid} className="center-block btn btn-primary btn-lg">
-            Sign up
-          </button>
+              <TextFieldGroup
+                error={errors.email}
+                label="Email"
+                onChange={this.onChange}
+                checkUserExists={this.checkUserExists}
+                value={this.state.email}
+                field="email"
+              />
+
+              <TextFieldGroup
+                error={errors.password}
+                label="Password"
+                onChange={this.onChange}
+                value={this.state.password}
+                field="password"
+                type="password"
+              />
+
+              <TextFieldGroup
+                error={errors.passwordConfirmation}
+                label="Password Confirmation"
+                onChange={this.onChange}
+                value={this.state.passwordConfirmation}
+                field="passwordConfirmation"
+                type="password"
+              />
+
+              <div className="home-form-actions">
+                <button
+                  disabled={this.state.isLoading || this.state.invalid}
+                  className="btn btn-lg home-primary-btn home-auth-btn"
+                >
+                  Sign up
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className="home-form-highlight">
+            <p className="home-card-label">What you unlock</p>
+            <h2>A personal favorites library</h2>
+            <ul className="home-check-list">
+              <li>Save tracks from archives the moment you find them</li>
+              <li>Open a dashboard built around playback and downloads</li>
+              <li>Come back to the songs you care about without digging</li>
+            </ul>
+          </div>
         </div>
-      </form>
+      </div>
     );
   }
 }

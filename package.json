@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "midi-archives",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "build": "webpack",
     "webpack-watch": "webpack -w",
     "express-server": "nodemon ./server",
-    "start": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
+    "start": "npx concurrently \"npm run webpack-watch\" \"npm run express-server\"",
     "start:prod": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +17,6 @@
   },
   "author": "Bibek Subedi",
   "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
   "homepage": "",
   "dependencies": {
     "axios": "^0.14.0",

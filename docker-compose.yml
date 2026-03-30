@@ -1,14 +1,20 @@
 # Single container: SQLite file persisted under ./data
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        NODE_ENV: development
     ports:
       - "${PORT:-3000}:3000"
     environment:
+      NODE_ENV: development
       SQLITE_PATH: ${SQLITE_PATH:-/app/data/app.db}
       JWT_SECRET: ${JWT_SECRET:-dev-change-me}
     volumes:
+      - .:/app
       - app-data:/app/data
+    command: sh -c "npm install && npm run start"
 
 volumes:
   app-data:

@@ -56,6 +56,11 @@ function getUserByUsername(username) {
   return rowToUser(row);
 }
 
+function getUserByEmail(email) {
+  const row = queryOne('SELECT * FROM user WHERE email = ?', [email]);
+  return rowToUser(row);
+}
+
 function createUser(username, passwordHash, email) {
   db.run('INSERT INTO user (username, password, email) VALUES (?, ?, ?)', [
     username,
@@ -101,6 +106,7 @@ module.exports = {
   rowToUser,
   getUserById,
   getUserByUsername,
+  getUserByEmail,
   createUser,
   setFavoriteMidis
 };

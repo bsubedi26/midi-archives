@@ -1,6 +1,5 @@
 import React from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
-// import validateInput from '../../../server/shared/validations/login';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
 
@@ -19,12 +18,6 @@ class LoginForm extends React.Component {
   }
 
   isValid() {
-    // Checks for any empty fields
-    // const { errors, isValid } = validateInput(this.state);
-    // if (!isValid) {
-    //   this.setState({ errors });
-    // }
-
     return true;
   }
 
@@ -54,30 +47,60 @@ class LoginForm extends React.Component {
     const { errors, identifier, password, isLoading } = this.state;
 
     return (
-      <form className="well" onSubmit={this.onSubmit}>
-        <h1 className="text-center">Login</h1>
+      <div className="home-shell home-auth-shell">
+        <video autoPlay muted loop id="bgvid">
+          <source src="/videos/video-bg.mp4" type="video/mp4" />
+        </video>
 
-        { errors.form && <div className="alert alert-danger">{errors.form}</div> }
+        <div className="home-overlay"></div>
 
-        <TextFieldGroup
-          field="identifier"
-          label="Username / Email"
-          value={identifier}
-          error={errors.identifier}
-          onChange={this.onChange}
-        />
+        <div className="home-auth-grid">
+          <div className="home-form-panel">
+            <p className="home-panel-label">Welcome Back</p>
+            <h1>Login</h1>
+            <p className="home-subtitle">
+              Step back into your library and pick up where your last favorite left off.
+            </p>
 
-        <TextFieldGroup
-          field="password"
-          label="Password"
-          value={password}
-          error={errors.password}
-          onChange={this.onChange}
-          type="password"
-        />
+            <form onSubmit={this.onSubmit}>
+              { errors.form && <div className="alert alert-danger">{errors.form}</div> }
 
-        <div className="form-group"><button className="center-block btn btn-primary btn-lg" disabled={isLoading}>Login</button></div>
-      </form>
+              <TextFieldGroup
+                field="identifier"
+                label="Username / Email"
+                value={identifier}
+                error={errors.identifier}
+                onChange={this.onChange}
+              />
+
+              <TextFieldGroup
+                field="password"
+                label="Password"
+                value={password}
+                error={errors.password}
+                onChange={this.onChange}
+                type="password"
+              />
+
+              <div className="home-form-actions">
+                <button className="btn btn-lg home-primary-btn home-auth-btn" disabled={isLoading}>
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className="home-form-highlight">
+            <p className="home-card-label">Inside your account</p>
+            <h2>Your shortcuts are waiting</h2>
+            <ul className="home-check-list">
+              <li>Favorites sync from the archive page into the dashboard</li>
+              <li>Replay or download saved MIDI without hunting through tabs</li>
+              <li>Keep the app feeling personal instead of starting over</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     );
   }
 }

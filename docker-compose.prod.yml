@@ -1,14 +1,19 @@
 # SQLite on a named volume or bind-mount SQLITE_PATH on the host.
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        NODE_ENV: production
     ports:
       - "${PORT:-3000}:3000"
     environment:
+      NODE_ENV: production
       SQLITE_PATH: ${SQLITE_PATH:-/app/data/app.db}
       JWT_SECRET: ${JWT_SECRET}
     volumes:
       - app-data:/app/data
+    command: npm run start:prod
     restart: unless-stopped
 
 volumes:
