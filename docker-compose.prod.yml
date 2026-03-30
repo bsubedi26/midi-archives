@@ -1,0 +1,15 @@
+# SQLite on a named volume or bind-mount SQLITE_PATH on the host.
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      SQLITE_PATH: ${SQLITE_PATH:-/app/data/app.db}
+      JWT_SECRET: ${JWT_SECRET}
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  app-data:

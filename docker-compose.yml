@@ -1,0 +1,14 @@
+# Single container: SQLite file persisted under ./data
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      SQLITE_PATH: ${SQLITE_PATH:-/app/data/app.db}
+      JWT_SECRET: ${JWT_SECRET:-dev-change-me}
+    volumes:
+      - app-data:/app/data
+
+volumes:
+  app-data:

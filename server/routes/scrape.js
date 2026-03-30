@@ -1,9 +1,8 @@
 import express from 'express';
-var request = require('request');
+var axios = require('axios');
 var cheerio = require('cheerio');
 const path = require('path');
 var fs = require('fs');
-var youtubedl = require('youtube-dl');
 var ytdl = require('ytdl-core');
 
 let router = express.Router();
@@ -24,16 +23,14 @@ router.get('/test', (req,res) => {
 
 router.get('/get', (req, res) => {
 
-    var options = {
-    url: 'https://www.reddit.com/r/HotSamples/',
-    headers: {
-      'User-Agent': 'request'
-    }
-  };
-
-  //main request to retrieve data and store into mongodb
-  request(options, function(error, response, html) {
-  if (error) throw error;
+  axios
+    .get('https://www.reddit.com/r/HotSamples/', {
+      headers: {
+        'User-Agent': 'request'
+      }
+    })
+    .then(function(response) {
+  var html = response.data;
   var results = [];
   var $ = cheerio.load(html);
     $(".thing").each(function(i, element) {
@@ -52,10 +49,11 @@ router.get('/get', (req, res) => {
       }
 
     })
-    // console.log(results)
-    res.json(results)
-
-  })
+    res.json(results);
+    })
+    .catch(function(err) {
+      throw err;
+    });
 });
 
 export default router;

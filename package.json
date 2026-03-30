@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "webpack-watch": "webpack -w",
     "express-server": "nodemon ./server",
     "start": "concurrent --kill-others \"npm run webpack-watch\" \"npm run express-server\"",
+    "start:prod": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +23,6 @@
   "homepage": "",
   "dependencies": {
     "axios": "^0.14.0",
-    "babel-loader": "^6.2.2",
     "babel-plugin-transform-class-properties": "^6.4.0",
     "babel-plugin-transform-runtime": "^6.4.3",
     "babel-polyfill": "^6.3.14",
@@ -30,16 +31,14 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
     "bcryptjs": "^2.3.0",
+    "sql.js": "^1.10.3",
     "body-parser": "^1.15.2",
     "cheerio": "^0.22.0",
     "classnames": "^2.2.5",
-    "concurrently": "^1.0.0",
     "express": "^4.13.4",
     "jsonwebtoken": "^7.1.9",
     "jsx-control-statements": "^3.1.4",
     "jwt-decode": "^2.1.0",
-    "mongojs": "^2.4.0",
-    "nodemon": "^1.10.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.5",
@@ -48,11 +47,12 @@
     "redux-thunk": "^2.1.0",
     "shortid": "^2.2.6",
     "validator": "^5.7.0",
-    "webpack": "^1.12.13",
-    "youtube-dl": "^1.11.1",
     "ytdl-core": "^0.7.18"
   },
   "devDependencies": {
-    "concurrently": "^1.0.0"
+    "babel-loader": "^6.2.2",
+    "concurrently": "^1.0.0",
+    "nodemon": "^1.10.2",
+    "webpack": "^1.12.13"
   }
 }

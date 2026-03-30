@@ -1,15 +1,4 @@
-var mongojs = require('mongojs');
-var databaseUrl = 'REACT';
-var collections = ["user"];
-var db = mongojs(databaseUrl, collections);
-db.on('error', function (err) {
-  console.log('MongoDB Error: ', err);
-});
-db.on('connect', function () {
-    console.log('database connected')
-})
-
-module.exports = db;
+module.exports = require('../config/db_config.js');
 
 // monk DB config
 // var monk = require('monk');

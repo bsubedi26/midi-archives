@@ -6,6 +6,10 @@ logs
 *.log
 npm-debug.log*
 
+# SQLite (local / Docker volume)
+data/*.db
+data/*.db-*
+
 # Runtime data
 pids
 *.pid
