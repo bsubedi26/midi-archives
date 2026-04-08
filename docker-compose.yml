@@ -1,8 +1,8 @@
 # Single container: SQLite file persisted under ./data
 services:
   app:
+    env_file: .env
     build:
-      env_file: .env
       context: .
       args:
         NODE_ENV: development
