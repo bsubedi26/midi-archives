@@ -2,12 +2,14 @@
 services:
   app:
     env_file: .env
+    container_name: midi-archives
+    restart: unless-stopped
     build:
       context: .
       args:
         NODE_ENV: development
     ports:
-      - "${PORT:-3001}:3001"
+      - "3001:3001"
     environment:
       NODE_ENV: development
       SQLITE_PATH: ${SQLITE_PATH:-/app/data/app.db}
