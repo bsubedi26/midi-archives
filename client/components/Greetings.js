@@ -1,8 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { demoLogin } from '../actions/authActions';
 
 class Greetings extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onDemoLogin = this.onDemoLogin.bind(this);
+  }
+
+  onDemoLogin(e) {
+    e.preventDefault();
+    this.props.demoLogin().then(() => {
+      this.context.router.push('/dashboard');
+    });
+  }
+
   renderPrimaryAction() {
     if (this.props.auth.isAuthenticated) {
       return (
@@ -13,9 +26,9 @@ class Greetings extends React.Component {
     }
 
     return (
-      <Link to="/signup" className="btn btn-lg home-primary-btn">
-        Create Free Account
-      </Link>
+      <button type="button" onClick={this.onDemoLogin} className="btn btn-lg home-primary-btn">
+        Try Demo Account
+      </button>
     );
   }
 
@@ -29,8 +42,8 @@ class Greetings extends React.Component {
     }
 
     return (
-      <Link to="/login" className="btn btn-lg home-secondary-btn">
-        Sign In
+      <Link to="/signup" className="btn btn-lg home-secondary-btn">
+        Create Free Account
       </Link>
     );
   }
@@ -132,7 +145,12 @@ class Greetings extends React.Component {
 }
 
 Greetings.propTypes = {
-  auth: React.PropTypes.object.isRequired
+  auth: React.PropTypes.object.isRequired,
+  demoLogin: React.PropTypes.func.isRequired
+}
+
+Greetings.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
@@ -141,4 +159,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Greetings);
+export default connect(mapStateToProps, { demoLogin })(Greetings);

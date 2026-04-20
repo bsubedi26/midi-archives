@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Player from '../midi/Player';
 import midiFolders from '../common/midiFolders';
@@ -181,6 +182,9 @@ class Dashboard extends React.Component {
             <p className="dashboard-subtitle">
               Keep your favorite MIDI files close, jump back into playback, and download the ones you want to keep offline.
             </p>
+            <Link to="/midi-archives" className="btn hero-nav-link">
+              Browse Midi Archives
+            </Link>
           </div>
 
           <div className="dashboard-stats">

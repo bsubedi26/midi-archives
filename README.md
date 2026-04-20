@@ -67,6 +67,13 @@ This starts:
 
 Open `http://localhost:3000`.
 
+### Demo account
+
+The app seeds a demo user when the SQLite database initializes, so visitors can try the protected dashboard and MIDI archive flow without signing up.
+
+- Username: `demo`
+- Password: `demo-password`
+
 ### Run in production mode
 
 ```bash

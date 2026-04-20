@@ -1,7 +1,7 @@
 import React from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
+import { login, demoLogin } from '../../actions/authActions';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onDemoLogin = this.onDemoLogin.bind(this);
   }
 
   isValid() {
@@ -37,6 +38,19 @@ class LoginForm extends React.Component {
       (err) => {
         console.log('error');
       })
+  }
+
+  onDemoLogin(e) {
+    e.preventDefault();
+    this.setState({ isLoading: true });
+    this.props.demoLogin().then(
+      () => {
+        this.context.router.push('/dashboard');
+      },
+      () => {
+        this.setState({ isLoading: false });
+      }
+    );
   }
 
   onChange(e) {
@@ -86,6 +100,14 @@ class LoginForm extends React.Component {
                 <button className="btn btn-lg home-primary-btn home-auth-btn" disabled={isLoading}>
                   Login
                 </button>
+                <button
+                  type="button"
+                  className="btn btn-lg"
+                  onClick={this.onDemoLogin}
+                  disabled={isLoading}
+                >
+                  Try Demo Account
+                </button>
               </div>
             </form>
           </div>
@@ -106,11 +128,12 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  login: React.PropTypes.func.isRequired
+  login: React.PropTypes.func.isRequired,
+  demoLogin: React.PropTypes.func.isRequired
 }
 
 LoginForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, { login, demoLogin })(LoginForm);

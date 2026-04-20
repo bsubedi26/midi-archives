@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Player from './Player.js';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import midiFolders from '../common/midiFolders';
 
@@ -228,6 +229,9 @@ class MidiArchives extends React.Component {
             <p className="midi-archives-subtitle">
               Browse curated folders, audition tracks instantly, and save the ones you want waiting in your dashboard.
             </p>
+            <Link to="/dashboard" className="btn hero-nav-link">
+              Back To Dashboard
+            </Link>
           </div>
 
           <div className="midi-archives-stats">

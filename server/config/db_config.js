@@ -1,6 +1,19 @@
 const initSqlJs = require('sql.js');
+const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
+
+const DEMO_USER = {
+  username: 'demo',
+  email: 'demo@midiarchives.local',
+  password: 'demo-password',
+  favoriteMidis: [
+    'Lady_Gaga-Poker_Face.mid',
+    'Mission_Impossible.mid',
+    'hyrule_temple_theme.mid',
+    'Jamaica.mid'
+  ]
+};
 
 let db;
 let dbPath;
@@ -73,6 +86,23 @@ function createUser(username, passwordHash, email) {
   return getUserById(newId);
 }
 
+function ensureDemoUser() {
+  const existingDemo = getUserByUsername(DEMO_USER.username);
+
+  if (existingDemo) {
+    if (!existingDemo.favoriteMidis || existingDemo.favoriteMidis.length === 0) {
+      setFavoriteMidis(DEMO_USER.username, DEMO_USER.favoriteMidis);
+    }
+    return existingDemo;
+  }
+
+  const passwordHash = bcrypt.hashSync(DEMO_USER.password, 10);
+  const demoUser = createUser(DEMO_USER.username, passwordHash, DEMO_USER.email);
+  setFavoriteMidis(DEMO_USER.username, DEMO_USER.favoriteMidis);
+
+  return demoUser;
+}
+
 function setFavoriteMidis(username, favorites) {
   const json = JSON.stringify(favorites);
   db.run('UPDATE user SET favoriteMidis = ? WHERE username = ?', [json, username]);
@@ -97,16 +127,19 @@ function initDb() {
         favoriteMidis TEXT
       );
     `);
+    ensureDemoUser();
     persist();
   });
 }
 
 module.exports = {
   initDb,
+  DEMO_USER,
   rowToUser,
   getUserById,
   getUserByUsername,
   getUserByEmail,
   createUser,
+  ensureDemoUser,
   setFavoriteMidis
 };

@@ -16,6 +16,7 @@ class SignupForm extends React.Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDemoLogin = this.onDemoLogin.bind(this);
     this.checkUserExists = this.checkUserExists.bind(this);
   }
 
@@ -28,6 +29,19 @@ class SignupForm extends React.Component {
   }
 
   checkUserExists(e) {
+  }
+
+  onDemoLogin(e) {
+    e.preventDefault();
+    this.setState({ isLoading: true });
+    this.props.demoLogin().then(
+      () => {
+        this.context.router.push('/dashboard');
+      },
+      () => {
+        this.setState({ isLoading: false });
+      }
+    );
   }
 
   onSubmit(e) {
@@ -111,6 +125,14 @@ class SignupForm extends React.Component {
                 >
                   Sign up
                 </button>
+                <button
+                  type="button"
+                  disabled={this.state.isLoading || this.state.invalid}
+                  onClick={this.onDemoLogin}
+                  className="btn btn-lg"
+                >
+                  Try Demo Account
+                </button>
               </div>
             </form>
           </div>
@@ -133,7 +155,8 @@ class SignupForm extends React.Component {
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired,
   addFlashMessage: React.PropTypes.func.isRequired,
-  isUserExists: React.PropTypes.func.isRequired
+  isUserExists: React.PropTypes.func.isRequired,
+  demoLogin: React.PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {
