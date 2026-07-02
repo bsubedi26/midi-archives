@@ -8,7 +8,6 @@ let router = express.Router();
 
 router.post('/', (req, res) => {
   const { identifier, password } = req.body;
-  console.log('login post', identifier);
 
   const user = getUserByUsername(identifier) || getUserByEmail(identifier);
 
@@ -16,14 +15,14 @@ router.post('/', (req, res) => {
     bcrypt.compare(password, user.password, function(err, response) {
       if (err) throw err;
       if (response === true) {
-        console.log('right password');
         const token = jwt.sign(
           {
             id: user.id,
             username: user.username,
             email: user.email
           },
-          config.jwtSecret
+          config.jwtSecret,
+          { expiresIn: '24h' }
         );
         res.json({ token });
       } else {

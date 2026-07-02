@@ -20,6 +20,6 @@ export default (
     <Route path="new-event" component={NewEventPage} />
     <Route path="dashboard" component={requireAuth(Dashboard)} />
     <Route path="midi-archives" component={requireAuth(MidiArchives)} />
-    <Route path="scrape" component={Scraper} />
+    <Route path="scrape" component={requireAuth(Scraper)} />
   </Route>
 )
