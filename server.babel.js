@@ -1,4 +1,5 @@
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -17,11 +18,19 @@ import midi from './server/routes/midi';
 import scrape from './server/routes/scrape';
 import authenticate from './server/middlewares/authenticate';
 
-app.use('/api/users', users);
-app.use('/api/auth', auth);
+// Throttle login/signup attempts to slow down credential-stuffing and brute force.
+const authRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 20,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
+app.use('/api/users', authRateLimiter, users);
+app.use('/api/auth', authRateLimiter, auth);
 app.use('/api/events', events);
 app.use('/api/midi', authenticate, midi);
-app.use('/api/scrape', scrape);
+app.use('/api/scrape', authenticate, scrape);
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
